@@ -1,9 +1,9 @@
 <?php
 
 $server = "localhost";
-$user = "workou68_admin";
-$password = "15C25v35l45l$";
-$database = "workou68_web";
+$user = "root";
+$password = "";
+$database = "bemEstar";
 
 $mysqli = new mysqli($server, $user, $password, $database);
 if ($mysqli->connect_errno)
