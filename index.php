@@ -260,7 +260,6 @@
                 $("#sexo").val() == "" ||
                 $("#endereco").val() == "" ||
                 $("#bairro").val() == "" ||
-                $("#complemento").val() == "" ||
                 $("#cep").val() == "" ||
                 $("#cidade").val() == "" ||
                 $("#uf").val() == "" ||

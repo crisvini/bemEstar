@@ -399,16 +399,12 @@
                 '              <label for="colesterol">Colesterol (mg/dl)</label>' +
                 '          </div>' +
                 '      </div>' +
-                '   </div>' +
-                '   <div class="row mt-3">' +
                 '      <div class="col-12 col-lg-2">' +
                 '          <div class="form-floating mb-3">' +
                 '              <input type="text" class="form-control" id="glicemia" placeholder="Glicemia">' +
                 '              <label for="glicemia">Glicemia (mg/dl)</label>' +
                 '          </div>' +
                 '      </div>' +
-                '   </div>' +
-                '   <div class="row mt-3">' +
                 '       <div class="col-12 col-lg-4 d-flex">' +
                 '           <div class="form-floating mb-3 w-50">' +
                 '               <input type="number" class="form-control" id="pressao_arterial" placeholder="Pressão Arterial">' +
