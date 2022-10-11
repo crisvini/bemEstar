@@ -23,11 +23,11 @@ if ($result->num_rows > 0) {
 $sql = "INSERT INTO
             paciente (nome, sexo, endereco, bairro, complemento, cep, cidade, 
                       uf, nascimento, telefone, email, peso, altura, fuma, 
-                      bebe, hipertensao, diabete, doenca_cardiaca, outras_doencas, medicacao, remedios_usados)
+                      bebe, hipertensao, diabete, doenca_cardiaca, outras_doencas, medicacao)
         VALUES
             ('" . $_POST["nome"] . "', '" . $_POST["sexo"] . "', '" . $_POST["endereco"] . "', '" . $_POST["bairro"] . "', '" . $_POST["complemento"] . "', '" . $_POST["cep"] . "', '" . $_POST["cidade"] . "', 
             '" . $_POST["uf"] . "', '" . $_POST["nascimento"] . "', '" . $_POST["telefone"] . "', '" . $_POST["email"] . "', " . $_POST["peso"] . ", " . $_POST["altura"] . ", " . $_POST["fumante"] . ",
-            " . $_POST["bebe"] . ", " . $_POST["hipertensao"] . ", " . $_POST["diabetes"] . ", " . $_POST["doenca_cardiaca"] . ", '" . $_POST["outras_doencas"] . "', '" . $_POST["medicacoes"] . "', '" . $_POST["remedios_usados"] . "')
+            " . $_POST["bebe"] . ", " . $_POST["hipertensao"] . ", " . $_POST["diabetes"] . ", " . $_POST["doenca_cardiaca"] . ", '" . $_POST["outras_doencas"] . "', '" . $_POST["medicacoes"] . "')
         ";
 mysqli_query($mysqli, $sql);
 

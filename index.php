@@ -313,7 +313,6 @@
                         doenca_cardiaca: $("#doenca_cardiaca").val(),
                         outras_doencas: $("#outras_doencas").val(),
                         medicacoes: $("#medicacoes").val(),
-                        remedios_usados: $("#remedios_usados").val(),
                         glicemia: $("#glicemia").val(),
                         colesterol: $("#colesterol").val(),
                         pressao_arterial: $("#pressao_arterial").val() + 'x' + $("#mmhg").val()

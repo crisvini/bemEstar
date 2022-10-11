@@ -113,7 +113,7 @@
             });
         })
 
-        $("#filtro, #nome").on("input", function() {
+        $("#filtro, #nomeBusca").on("input", function() {
             var settings = {
                 url: './ajax/buscaPaciente.php',
                 method: 'POST',
@@ -335,7 +335,6 @@
                         $("#doenca_cardiaca").html(result["doenca_cardiaca"]);
                         $("#outras_doencas").val(result["outras_doencas"]);
                         $("#medicacoes").val(result["medicacoes"]);
-                        $("#remedios_usados").val(result["remedios_usados"]);
                     });
                 }
             }).then(function(result) {
@@ -364,8 +363,7 @@
                             diabetes: $("#diabetes").val(),
                             doenca_cardiaca: $("#doenca_cardiaca").val(),
                             outras_doencas: $("#outras_doencas").val(),
-                            medicacoes: $("#medicacoes").val(),
-                            remedios_usados: $("#remedios_usados").val()
+                            medicacoes: $("#medicacoes").val()
                         }
                     }
                     $.ajax(settings).done(function(result) {

@@ -10,7 +10,7 @@ $sql = 'UPDATE
             nascimento = "' . $_POST["nascimento"] . '", telefone = "' . $_POST["telefone"] . '", email = "' . $_POST["email"] . '", peso = ' . $_POST["peso"] . ', 
             altura = ' . $_POST["altura"] . ', fuma = ' . $_POST["fumante"] . ', bebe = ' . $_POST["bebe"] . ', hipertensao = ' . $_POST["hipertensao"] . ', 
             diabete = ' . $_POST["diabetes"] . ', doenca_cardiaca = ' . $_POST["doenca_cardiaca"] . ', outras_doencas = "' . $_POST["outras_doencas"] . '", 
-            medicacao = "' . $_POST["medicacoes"] . '", remedios_usados = "' . $_POST["remedios_usados"] . '"
+            medicacao = "' . $_POST["medicacoes"] . '"
         WHERE
             id_paciente = ' . $_POST["idPaciente"];
 mysqli_query($mysqli, $sql);

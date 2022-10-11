@@ -43,8 +43,7 @@ CREATE TABLE `paciente` (
   `diabete` tinyint(1) NOT NULL,
   `doenca_cardiaca` tinyint(1) NOT NULL,
   `outras_doencas` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `medicacao` tinyint(1) NOT NULL,
-  `remedios_usados` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
+  `medicacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `usuario` (

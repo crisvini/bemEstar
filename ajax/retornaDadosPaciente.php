@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
             "cep" => $row["cep"], "cidade" => $row["cidade"], "uf" => $row["uf"], "nascimento" => $row["nascimento"], "telefone" => $row["telefone"],
             "email" => $row["email"], "peso" => $row["peso"], "altura" => $row["altura"], "fuma" => $selectFuma, "bebe" => $selectBebe,
             "hipertensao" => $selectHipertensao, "diabete" => $selectDiabete, "doenca_cardiaca" => $selectDoencaCardiaca, "outras_doencas" => $row["outras_doencas"],
-            "medicacao" => $row["medicacao"], "remedios_usados" => $row["remedios_usados"],
+            "medicacao" => $row["medicacao"]
         ]);
     }
 }
