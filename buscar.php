@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION["nome"])) header("Location: ./login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -35,6 +40,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success fw-semibold" href="./buscar.php">Buscar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success fw-semibold" onclick="logout()">Sair</a>
                         </li>
                     </ul>
                 </div>
@@ -112,6 +120,24 @@
                     $("tbody").html(result);
             });
         })
+
+        // Logout
+        function logout() {
+            Swal.fire({
+                text: 'Tem certeza que deseja sair?',
+                icon: 'warning',
+                confirmButtonText: 'Sim',
+                showDenyButton: true,
+                denyButtonText: 'Não',
+                background: '#edece6',
+                customClass: {
+                    confirmButton: 'btn-success'
+                }
+            }).then(function(result) {
+                if (result.isConfirmed)
+                    window.location.href = "./login.php";
+            });
+        }
 
         $("#filtro, #nomeBusca").on("input", function() {
             var settings = {
