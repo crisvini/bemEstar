@@ -55,7 +55,7 @@ $_SESSION = array(); // Limpa a session
 <script>
     function login() {
         var settings = {
-            url: './ajax/login.php',
+            url: '../ajax/usuarioAjax.php',
             method: 'POST',
             data: {
                 nome: $("#nome").val(),
@@ -64,7 +64,7 @@ $_SESSION = array(); // Limpa a session
         }
         $.ajax(settings).done(function(result) {
             if (result == true) {
-                window.location.href = "index.php";
+                window.location.href = "../index.php";
             } else {
                 $("#nome, #senha").val("");
                 alertaPreenchimento('#nome', '#label_nome');

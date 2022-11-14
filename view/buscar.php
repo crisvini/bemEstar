@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["nome"])) header("Location: ./login.php");
+if (!isset($_SESSION["usuario"])) 
+    header("Location: ./login.php");
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +30,14 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
     <header>
         <nav class="navbar navbar-expand-lg sticky-top bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand fs-4 fw-bold text-success" href="./">Bem Estar</a>
+                <a class="navbar-brand fs-4 fw-bold text-success" href="./home.php">Bem Estar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-success fw-semibold" aria-current="page" href="./">Cadastrar</a>
+                            <a class="nav-link active text-success fw-semibold" aria-current="page" href="./home.php">Cadastrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success fw-semibold" href="./buscar.php">Buscar</a>
@@ -110,8 +111,13 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
     <script>
         $(document).ready(function() {
             var settings = {
-                url: './ajax/buscarTodosPacientes.php',
-                method: 'POST'
+                url: '../ajax/pacienteAjax.php',
+                method: 'POST',
+                data: {
+                    operacao: 'buscarPacientes',
+                    nome: "",
+                    filtro: ""
+                },
             }
             $.ajax(settings).done(function(result) {
                 if (result == "")
@@ -141,9 +147,10 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
 
         $("#filtro, #nomeBusca").on("input", function() {
             var settings = {
-                url: './ajax/buscaPaciente.php',
+                url: '../ajax/pacienteAjax.php',
                 method: 'POST',
                 data: {
+                    operacao: 'buscarPacientes',
                     nome: $("#nomeBusca").val(),
                     filtro: $("#filtro").val()
                 },
@@ -333,9 +340,10 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
                     $("#altura").mask("000");
                     $("#telefone").mask("(00) 00000-0000");
                     var settings = {
-                        url: './ajax/retornaDadosPaciente.php',
+                        url: '../ajax/pacienteAjax.php',
                         method: 'POST',
                         data: {
+                            operacao: "retornarDadosPaciente",
                             idPaciente: id
                         }
                     }
@@ -366,9 +374,10 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
             }).then(function(result) {
                 if (result.isConfirmed) {
                     var settings = {
-                        url: './ajax/editarPaciente.php',
+                        url: '../ajax/pacienteAjax.php',
                         method: 'POST',
                         data: {
+                            operacao: "editarPaciente",
                             idPaciente: id,
                             nome: $("#nome").val(),
                             sexo: $("#sexo").val(),
@@ -459,10 +468,11 @@ if (!isset($_SESSION["nome"])) header("Location: ./login.php");
                 if (result.isConfirmed) {
                     if ($("#colesterol").val() != "" && $("#glicemia").val() != "" && $("#pressao_arterial").val() != "" && $("#mmhg").val() != "") {
                         var settings = {
-                            url: './ajax/insereExame.php',
+                            url: '../ajax/exameAjax.php',
                             method: 'POST',
                             data: {
                                 idPaciente: id,
+                                idUsuario: '<?= $_SESSION["usuario"] ?>',
                                 colesterol: $("#colesterol").val(),
                                 pressao_arterial: $("#glicemia").val() + 'x' + $("#mmhg").val(),
                                 glicemia: $("#glicemia").val()

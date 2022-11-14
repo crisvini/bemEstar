@@ -4,20 +4,16 @@ include_once("../mysql/conexao.php");
 
 // Verifica se o e-mail já foj cadastrado
 $sql = "SELECT 
-            *
+            1
         FROM
             paciente
         WHERE
-            email = '" . $_POST["email"] . "'
+            (email = '" . $_POST["email"] . "' AND email IS NOT NULL)
         OR
-            telefone = '" . $_POST["telefone"] . "'";
+            (telefone = '" . $_POST["telefone"] . "' AND telefone IS NOT NULL)";
 $result = $mysqli->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        if ($row["email"] != null || $row["telefone"] != null)
-            die("erro");
-    }
-}
+if ($result->num_rows > 0) 
+    die("erro");
 
 // Insere novo paciente
 $sql = "INSERT INTO

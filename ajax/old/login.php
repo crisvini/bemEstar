@@ -2,14 +2,13 @@
 
 session_start();
 
-include_once("../mysql/conexao.php");
+include_once("./mysql/conexao.php");
 
 $autenticado = false;
 
 // Busca o email e a senha no banco de dados
 $sql = "SELECT
-            nome,
-            senha
+            *
         FROM 
             usuario
         WHERE
